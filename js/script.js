@@ -10,10 +10,10 @@ const num = [33 , 22 , 1 ,62 , 54 , 87];
 
 const textContainer = document.querySelector('#text');
 const numGame = document.querySelector('#num-game')
-
+// inizializzare variabile a 30 che sta per  30 secondi
 let timer = 6;
 textContainer.innerHTML = timer;
-
+// Mostra i numeri per 30 secondi
 const clock = setInterval(function() {
     timer--;
     textContainer.innerHTML = timer;
@@ -24,7 +24,27 @@ const clock = setInterval(function() {
 
         textContainer.innerHTML = 'tempo scaduto';
         numGame.innerHTML = '';
-        let numUser = parseInt(prompt('che numeri ti ricordi'));
+        setTimeout(() => {
+           // Chiede all'utente di inserire i numeri per 5 volte
+            const userNum = [];
+                for (let i = 0; i < 5; i++) {
+                userNum.push(parseInt(prompt("Inserisci un numero:")));
+                }
+                  // Calcola il punteggio
+                 let score = 0;
+                for (let i = 0; i < num.length; i++) {
+                     if (num.includes(userNum[i])) {
+                        score++;
+                         }
+                }
+
+                // Mostra il risultato
+                alert(`Hai indovinato ${score} numeri!`);
+
+         }, 1000);
+          
     }
-    
+
 }, 1000);
+
+

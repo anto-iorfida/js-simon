@@ -5,11 +5,12 @@
 
 // creare un array da visualizzare in pagina e che scompare dopo 30 secondi
 const num = [33 , 22 , 1 ,62 , 54 , 87];
-// far digitare all'user i numeri che ha visualizzato
-// creare condizione che dice quanti numeri e quali numeri l'user ha indovinato
 
 const textContainer = document.querySelector('#text');
 const numGame = document.querySelector('#num-game')
+// far digitare all'user i numeri che ha visualizzato
+
+
 // inizializzare variabile a 30 che sta per  30 secondi
 let timer = 6;
 textContainer.innerHTML = timer;
@@ -18,16 +19,20 @@ const clock = setInterval(function() {
     timer--;
     textContainer.innerHTML = timer;
     numGame.innerHTML = num;
+//    quando il timer e a zero allora:
     if(timer == 0) {
-    
+        // ferma il conto alla rovescia 
         clearInterval(clock);
-
+        // dire che il tempo e scaduto 
         textContainer.innerHTML = 'tempo scaduto';
+        // far scomparire i numeri 
         numGame.innerHTML = '';
+        // e dopo un secondo chiedere all'utente 
         setTimeout(() => {
-           // Chiede all'utente di inserire i numeri per 5 volte
+           // Chiede all'utente per 5 volte di inserire i numeri 
             const userNum = [];
                 for (let i = 0; i < 5; i++) {
+                    // che si pusciano nell'array userNun 
                 userNum.push(parseInt(prompt("Inserisci un numero:")));
                 }
                   // Calcola il punteggio

@@ -37,14 +37,22 @@ const clock = setInterval(function() {
                 }
                   // Calcola il punteggio
                  let score = 0;
+                 let numWin = [];
+                //  e in piu vedere quali numeri l'utente a indovinato 
                 for (let i = 0; i < num.length; i++) {
                      if (num.includes(userNum[i])) {
                         score++;
+                        numWin.push(userNum[i]);
                          }
                 }
 
                 // Mostra il risultato
-                alert(`Hai indovinato ${score} numeri!`);
+                
+                let message = `Hai indovinato ${score} numeri!`;
+                if (numWin.length > 0) {
+                  message += ` I numeri indovinati sono: ${numWin.join(", ")}`;
+                }
+                alert(message);
 
          }, 1000);
           
